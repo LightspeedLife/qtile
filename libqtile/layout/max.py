@@ -31,7 +31,10 @@ class Max(_SimpleLayoutBase):
     switch to next and previous windows in the stack.
     """
 
-    defaults = [("name", "max", "Name of this layout.")]
+    defaults = [
+        ("name", "max", "Name of this layout."),
+        ("margin", 0, "Window margins"),
+        ]
 
     def __init__(self, **config):
         _SimpleLayoutBase.__init__(self, **config)
@@ -51,7 +54,8 @@ class Max(_SimpleLayoutBase):
                 screen.width,
                 screen.height,
                 0,
-                None
+                None,
+                margin=self.margin
             )
             client.unhide()
         else:
